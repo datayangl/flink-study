@@ -1,4 +1,4 @@
-package com.ly.flink.sinks;
+package com.ly.flink.sinks.multithread;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

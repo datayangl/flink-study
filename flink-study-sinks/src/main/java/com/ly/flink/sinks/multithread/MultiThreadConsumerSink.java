@@ -1,4 +1,4 @@
-package com.ly.flink.sinks;
+package com.ly.flink.sinks.multithread;
 
 import com.ly.flink.common.UdfConfigOptions;
 import org.apache.flink.configuration.Configuration;
@@ -33,7 +33,7 @@ public class MultiThreadConsumerSink extends RichSinkFunction<String> implements
         this.consumerBarrier = new CyclicBarrier(consumerThreadNumber + 1);
 
         ConsumerThread consumer= new ConsumerThread(buffer, consumerBarrier);
-        for (int i=0; i < consumerThreadNumber; i++) {
+        for (int i = 0; i < consumerThreadNumber; i++) {
             threadPoolExecutor.execute(consumer);
         }
     }
